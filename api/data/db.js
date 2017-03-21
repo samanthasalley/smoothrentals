@@ -38,6 +38,6 @@ process.once('SIGUSR2', function(){
 
 // // BRING IN SCHEMAS AND MODELS
 require("./users.model");
-require("./listings.model");
+require("./listing.model");
 require("./comments.model");
-require("./applications.model");
+require("./application.model");

@@ -11,7 +11,7 @@
     <div ng-controller="AppController">
         <simple-navigation></simple-navigation>
 
-        <div class="page">
+        <div class="page container">
             <div ng-view></div>
         </div>
         
@@ -24,7 +24,11 @@
 <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="angular-app/app.js"></script>
 <script type="text/javascript" src="angular-app/shared/main/app-controller.js"></script>
+<script type="text/javascript" src="angular-app/shared/auth/auth-factory.js"></script>
+<script type="text/javascript" src="angular-app/shared/auth/auth-interceptor.js"></script>
 <script type="text/javascript" src="angular-app/shared/navigation-directive/navigation-directive.js"></script>
 <script type="text/javascript" src="angular-app/shared/footer-directive/footer-directive.js"></script>
+<script type="text/javascript" src="angular-app/shared/user-data-factory/user-data-factory.js"></script>
+<script type="text/javascript" src="angular-app/components/users/register-controller.js"></script>
 </body>
 </html>

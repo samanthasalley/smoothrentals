@@ -6,10 +6,16 @@ function config($routeProvider){
             templateUrl: 'angular-app/components/home/home.html'
         })
         .when('/listings', {
-            templateUrl: 'angular-app/components/listings/listings.html'
+            templateUrl: 'angular-app/components/listings/listings-display.html'
+        })
+        .when('/listings/new', {
+            templateUrl: 'angular-app/components/listings/item-new.html'
         })
         .when('/listings/:listId', {
             templateUrl: 'angular-app/components/listings/item-display.html'
+        })
+        .when('/listings/:listId/edit', {
+            templateUrl: 'angular-app/components/listings/item-edit.html'
         })
         .when('/listings/:listId/apply', {
             templateUrl: 'angular-app/components/applications/apply.html'
@@ -24,7 +30,9 @@ function config($routeProvider){
             templateUrl: 'angular-app/components/users/login.html'
         })
         .when('/register', {
-            templateUrl: 'angular-app/components/users/register.html'
+            templateUrl: 'angular-app/components/users/register.html',
+            controller: RegisterController,
+            controllerAs: 'vm'
         })
         .when('/profile', {
             templateUrl: 'angular-app/components/users/profile-display.html'

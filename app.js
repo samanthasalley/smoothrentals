@@ -1,5 +1,8 @@
+require("./api/data/db.js");
+
 var bodyParser		= require('body-parser'),
 	express			= require('express'),
+	routes			= require('./api/routes'),
 	port			= process.env.PORT || 3000,
 	path			= require('path'),
 	app				= express();
@@ -17,6 +20,9 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.use(bodyParser.urlencoded({ extended : false }));
 app.use(bodyParser.json());
+
+// Use routes for anything with /
+app.use('/api', routes);
 
 
 

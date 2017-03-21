@@ -4,7 +4,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form>
+			<form name="vm.registerForm" 
+				ng-submit="vm.register()" 
+				ng-hide="vm.message">
 				<div class="form-group">
 					<label for="firstName">First Name: </label>
 					<input type="text" name="firstName" 
@@ -19,33 +21,65 @@
 				</div>
 				<div class="form-group">
 					<label for="email">Email: </label>
-					<input type="text" name="email" 
+					<input type="email" name="email" 
 						class="form-control" 
-						ng-model="vm.email" />
+						ng-model="vm.email" 
+						required />
+					<span class="form-error"
+						ng-if="vm.error && vm.form.email.$invalid">
+						Please enter an email address.
+					</span>
 				</div>
 				<div class="form-group">
 					<label for="username">Username: </label>
 					<input type="text" name="username" 
 						class="form-control" 
-						ng-model="vm.username" />
+						ng-model="vm.username" 
+						required />
+					<span class="form-error"
+						ng-if="vm.error && vm.form.username.$invalid">
+						Please choose a username.
+					</span>
 				</div>
 				<div class="form-group">
 					<label for="password">Password: </label>
 					<input type="password" name="password" 
 						class="form-control" 
-						ng-model="vm.password" />
+						ng-model="vm.password" 
+						required />
+					<span class="form-error"
+						ng-if="vm.error && vm.form.password.$invalid">
+						Please enter a password.
+					</span>
+					<span class="form-error"
+						ng-if="vm.error && vm.form.password.errorMsg">
+						{{vm.form.password.errorMsg}}
+					</span>
 				</div>
 				<div class="form-group">
 					<label for="passwordRepeat">Repeat Password: </label>
 					<input type="password" name="passwordRepeat" 
 						class="form-control" 
-						ng-model="vm.passwordRepeat" />
+						ng-model="vm.passwordRepeat" 
+						required />
+					<span class="form-error"
+						ng-if="vm.error && vm.form.passwordRepeat.$invalid">
+						Please repeat password.
+					</span>
+					<span class="form-error"
+						ng-if="vm.error && vm.form.passwordRepeat.errorMsg">
+						{{vm.form.passwordRepeat.errorMsg}}
+					</span>
 				</div>
-				<button class="btn btn-primary" 
-					ng-click="vm.register()">
+				<button type="submit" 
+					class="btn btn-primary">
 					Register
 				</button>
 			</form>
+			<span class="form-success"
+				ng-if="vm.message">
+				You have successfully registered!
+			</span>
 		</div>
 	</div>
 </div>

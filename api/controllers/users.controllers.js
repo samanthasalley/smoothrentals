@@ -10,13 +10,17 @@ module.exports.usersGetAll = function(req, res) {
 module.exports.usersAddOne = function(req, res) {
     console.log('registering user');
     var newUser = {};
+        newUser.firstName = req.body.firstName || null;
+        newUser.lastName = req.body.lastName || null;
+        newUser.email = req.body.email;
         newUser.username = req.body.username;
-        newUser.name = req.body.name || null;
         newUser.password = req.body.password;
         
     User.create({
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        email: newUser.email,
         username: newUser.username,
-        name: newUser.name,
         password: bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10))
     }, function(err, user){
         if(err){

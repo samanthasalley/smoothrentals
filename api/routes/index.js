@@ -6,34 +6,34 @@ var express             = require("express"),
     ctrlApplications    = require("../controllers/applications.controllers.js");
     
 router
-    .route('/listing')
+    .route('/listings')
     .get(ctrlListings.listingsGetAll)
     .post(ctrlListings.listingsAddOne);
     
 router
-    .route('/listing/:listId')
+    .route('/listings/:listId')
     .get(ctrlListings.listingsGetOne)
     .post(ctrlListings.listingsUpdateOne)
     .delete(ctrlListings.listingsDeleteOne);
     
 router
-    .route('/listing/:listId/apply')
+    .route('/listings/:listId/applications')
     .get(ctrlApplications.applicationsGetAll)
     .post(ctrlApplications.applicationsAddOne);
     
 router
-    .route('/listing/:listId/apply/:appId')
+    .route('/listings/:listId/applications/:appId')
     .get(ctrlApplications.applicationsGetOne)
     .post(ctrlApplications.applicationsUpdateOne)
     .delete(ctrlApplications.applicationsDeleteOne);
     
 router
-    .route('/listing/:listId/comments')
+    .route('/listings/:listId/comments')
     .get(ctrlComments.commentsGetAll)
     .post(ctrlComments.commentsAddOne);
     
 router
-    .route('/listing/:listId/comments/:commentId')
+    .route('/listings/:listId/comments/:commentId')
     .get(ctrlComments.commentsGetOne)
     .post(ctrlComments.commentsUpdateOne)
     .delete(ctrlComments.commentsDeleteOne);
@@ -45,12 +45,13 @@ router
     .post(ctrlUsers.usersAddOne);
 
 router
-    .route('/users')
-    .get(ctrlUsers.usersGetAll)
-    .post(ctrlUsers.usersGetOne);
+    .route('/login')
+    // .get(ctrlUsers.usersGetAll)
+    .post(ctrlUsers.usersLoginOne);
 
 router
     .route('/users/:userId')
+    .get(ctrlUsers.usersGetOne)
     .post(ctrlUsers.usersUpdateOne)
     .delete(ctrlUsers.usersDeleteOne);
     

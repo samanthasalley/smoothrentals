@@ -15,11 +15,11 @@ router
     .get(ctrlListings.listingsGetOne)
     .post(ctrlListings.listingsUpdateOne)
     .delete(ctrlListings.listingsDeleteOne);
-    
+
 router
     .route('/listings/:listId/applications')
-    .get(ctrlApplications.applicationsGetAll)
-    .post(ctrlApplications.applicationsAddOne);
+    .get(ctrlListings.listingGetAllApplications)
+    .post(ctrlListings.listingsAddApplication);
     
 router
     .route('/listings/:listId/applications/:appId')
@@ -54,5 +54,15 @@ router
     .get(ctrlUsers.usersGetOne)
     .post(ctrlUsers.usersUpdateOne)
     .delete(ctrlUsers.usersDeleteOne);
+
+router
+    .route('/user/userId/application')
+    .get(ctrlApplications.applicationsGetOne)
+    .post(ctrlApplications.applicationsAddOne);
+
+router
+    .route('/user/userId/application/:appId')
+    .get(ctrlApplications.applicationsGetOne)
+    .post(ctrlApplications.applicationsAddOne);
     
 module.exports = router;

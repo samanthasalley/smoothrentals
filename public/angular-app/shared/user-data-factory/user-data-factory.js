@@ -3,16 +3,16 @@ angular.module('smoothrentals').factory('userDataFactory', userDataFactory);
 function userDataFactory($http){
     return {
         registerUser: registerUser,
-        loginUser: loginUser,
+        getUser: getUser,
         updatePassword: updatePassword
     };
     
     function registerUser(user){
-        return $http.post('/api/users', user).then(complete).catch(failed);
+        return $http.post('/api/register', user).then(complete).catch(failed);
     }
     
-    function loginUser(user){
-        return $http.post('/api/users/login', user).then(complete).catch(failed);
+    function getUser(user){
+        return $http.post('/api/users', user).then(complete).catch(failed);
     }
     
     function updatePassword(user){

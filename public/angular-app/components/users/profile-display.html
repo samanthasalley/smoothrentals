@@ -1,5 +1,6 @@
 <div class="page-header text-center">
-	<h1>Profile for [username]</h1>
+	<h1>Profile for {{loggedinUser.username}}</h1>
+	<p>If this is not you, please <a href="" ng-click="logout()">logout</a>.</p>
 </div>
 <div class="row">
 	<div class="col-md-12">
@@ -8,28 +9,28 @@
 				<label for="firstName">First Name: </label>
 				<input type="text" name="firstName" 
 					class="form-control" 
-					ng-model="vm.firstName" />
+					ng-model="loggedinUser.firstName" />
 			</div>
 			<div class="form-group">
 				<label for="lastName">Last Name: </label>
 				<input type="text" name="lastName" 
 					class="form-control" 
-					ng-model="vm.lastName" />
+					ng-model="loggedinUser.lastName" />
 			</div>
 			<div class="form-group">
 				<label for="email">Email: </label>
 				<input type="text" name="email" 
 					class="form-control" 
-					ng-model="vm.email" />
+					ng-model="loggedinUser.email" />
 			</div>
 			<div class="form-group">
 				<label for="username">Username: </label>
 				<input type="text" name="username" 
 					class="form-control" 
-					ng-model="vm.username" />
+					ng-model="loggedinUser.username" />
 			</div>
 			<button class="btn btn-primary" 
-				ng-click="vm.updateProfile()">
+				ng-click="vm.openModal()">
 				Update Profile
 			</button>
 		</form>

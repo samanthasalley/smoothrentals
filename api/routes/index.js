@@ -41,12 +41,13 @@ router
 
 // Authentication Routes
 router
+    .route('/register')
+    .post(ctrlUsers.usersAddOne);
+
+router
     .route('/users')
     .get(ctrlUsers.usersGetAll)
-    .post(ctrlUsers.usersAddOne);
-router
-    .route('/users/login')
-    .get(ctrlUsers.usersGetOne);
+    .post(ctrlUsers.usersGetOne);
 
 router
     .route('/users/:userId')

@@ -35,6 +35,7 @@ module.exports.usersAddOne = function(req, res) {
 
 module.exports.usersGetOne = function(req, res) {
     console.log('logging in user');
+    console.log('curUser: username - ' + req.body.username + ', password - ' + req.body.password);
     var curUser = {};
         curUser.username = req.body.username;
         curUser.password = req.body.password;
@@ -46,10 +47,11 @@ module.exports.usersGetOne = function(req, res) {
             console.log(err);
             res.status(400).json(err);
         }else{
+            console.log('found user', user);
             if(bcrypt.compareSync(curUser.password, user.password)){
-                console.log('user found!', user);
+                console.log('password match!', user);
                 var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600 });
-                res.status(200).json({ success: true, token: token });
+                res.status(200).json({ success: true, token: token, user:user });
             }else{
                 res.status(401).json('Unauthorized');
             }

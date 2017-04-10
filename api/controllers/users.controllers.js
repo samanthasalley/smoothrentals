@@ -3,9 +3,9 @@ var mongoose    = require("mongoose"),
     User        = mongoose.model('User'),
     jwt         = require("jsonwebtoken");
 
-module.exports.usersGetAll = function(req, res) {
-    console.log('getting all users');
-};
+// module.exports.usersGetAll = function(req, res) {
+//     console.log('getting all users');
+// };
 
 module.exports.usersAddOne = function(req, res) {
     console.log('registering user');
@@ -33,7 +33,7 @@ module.exports.usersAddOne = function(req, res) {
     });
 };
 
-module.exports.usersGetOne = function(req, res) {
+module.exports.usersLoginOne = function(req, res) {
     console.log('logging in user');
     console.log('curUser: username - ' + req.body.username + ', password - ' + req.body.password);
     var curUser = {};
@@ -57,6 +57,10 @@ module.exports.usersGetOne = function(req, res) {
             }
         }
     });
+};
+
+module.exports.usersGetOne = function(req, res) {
+    console.log('getting one user');
 };
 
 module.exports.usersUpdateOne = function(req, res) {

@@ -21,11 +21,11 @@ router
 //     .get(ctrlListings.listingGetAllApplications)
 //     .post(ctrlListings.listingsAddApplication);
     
-router
-    .route('/listings/:listId/applications/:appId')
-    .get(ctrlApplications.applicationsGetOne)
-    .post(ctrlApplications.applicationsUpdateOne)
-    .delete(ctrlApplications.applicationsDeleteOne);
+// router
+//     .route('/listings/:listId/applications/:appId')
+//     .get(ctrlApplications.applicationsGetOne)
+//     .post(ctrlApplications.applicationsUpdateOne)
+//     .delete(ctrlApplications.applicationsDeleteOne);
     
 router
     .route('/listings/:listId/comments')
@@ -50,7 +50,7 @@ router
 
 router
     .route('/users/:userId')
-    .get(ctrlUsers.usersGetOne)
+    // .get(ctrlUsers.usersGetOne)
     .post(ctrlUsers.usersUpdateOne)
     .delete(ctrlUsers.usersDeleteOne);
 

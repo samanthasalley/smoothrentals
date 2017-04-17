@@ -148,4 +148,38 @@ module.exports.listingsUpdateOne = function(req, res) {
 
 module.exports.listingsDeleteOne = function(req, res) {
     console.log('deleting one listing');
+    var listId = req.params.listId;
+
+    Listing
+        .findById(listId)
+        .exec(function(err, listing){
+            var response = {
+                status : 200,
+                message : listing || null
+            };
+            if(err){
+                response.status = 500;
+                response.message = err;
+            } else if(!listing){
+                response.status = 404;
+                response.message = "Listing ID not found";
+            }
+            if(response.status !== 200){
+                res
+                    .status(response.status)
+                    .json(response.message);
+            } else {
+                listing.remove(function(err){
+                    if(err){
+                        res
+                            .status(500)
+                            .json(err);
+                    }else{
+                        res
+                            .status(204)
+                            .json({success: true, message: response.message});
+                    }
+                });
+            }
+    });
 };

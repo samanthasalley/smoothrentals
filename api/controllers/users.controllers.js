@@ -59,17 +59,44 @@ module.exports.usersLoginOne = function(req, res) {
     });
 };
 
-module.exports.usersGetOne = function(req, res) {
-    console.log('getting one user');
-};
+// module.exports.usersGetOne = function(req, res) {
+//     console.log('getting one user');
+//     var curUser = {};
+//         curUser.username = req.body.username;
+//         curUser.password = req.body.password;
+        
+//     User.findOne({
+//         username: curUser.username
+//     }).exec(function(err, user){
+//         if(err){
+//             console.log(err);
+//             res.status(400).json(err);
+//         }else{
+//             console.log('found user', user);
+//             if(bcrypt.compareSync(curUser.password, user.password)){
+//                 console.log('password match!', user);
+//                 res.status(200).json({ success: true, user:user });
+//             }else{
+//                 res.status(401).json('Unauthorized');
+//             }
+//         }
+//     });
+// };
 
 module.exports.usersUpdateOne = function(req, res) {
     console.log('updating one user');
     var curUser = {};
         curUser.username = req.body.username;
+        curUser.email = req.body.currentEmail;
         curUser.password = req.body.currentPassword;
         
-    var newPassword = req.body.newPassword;
+    var updateUser = {};
+        if(req.body.newEmail){
+            updateUser.email = req.body.newEmail;
+        }
+        if(req.body.newPassword){
+            updateUser.password = req.body.newPassword;
+        }
         
     User.findOne({
         username: curUser.username
@@ -80,7 +107,12 @@ module.exports.usersUpdateOne = function(req, res) {
         }else{
             if(bcrypt.compareSync(curUser.password, user.password)){
                 console.log('user found!', user);
-                user.password = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(10));
+                if(updateUser.email){
+                    user.email = updateUser.email;
+                }
+                if(updateUser.password){
+                    user.password = bcrypt.hashSync(updateUser.password, bcrypt.genSaltSync(10));
+                }
                 user.save(function(err, updatedUser){
                     if(err){
                         res
@@ -90,7 +122,7 @@ module.exports.usersUpdateOne = function(req, res) {
                         var token = jwt.sign({ username: updatedUser.username }, 's3cr3t', { expiresIn: 3600 });
                         res
                             .status(204)
-                            .json({ success: true, token: token });
+                            .json({ success: true, token: token, user: updatedUser });
                     }
                 });
             }else{

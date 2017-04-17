@@ -43,151 +43,118 @@ var applicationSchema = new mongoose.Schema({
         },
         prevAddress1: {
             street: {
-                type: String,
-                required: true
+                type: String
             },
             street2: String,
             city: {
-                type: String,
-                required: true
+                type: String
             },
             state: {
-                type: String,
-                required: true
+                type: String
             },
             country: {
-                type: String,
-                required: true
+                type: String
             },
             zip: {
-                type: String,
-                required: true
+                type: String
             },
             timeLived: {
-                type: String,
-                required: true
+                type: String
             }
         },
         prevAddress2: {
             street: {
-                type: String,
-                required: true
+                type: String
             },
             street2: String,
             city: {
-                type: String,
-                required: true
+                type: String
             },
             state: {
-                type: String,
-                required: true
+                type: String
             },
             country: {
-                type: String,
-                required: true
+                type: String
             },
             zip: {
-                type: String,
-                required: true
+                type: String
             },
             timeLived: {
-                type: String,
-                required: true
+                type: String
             }
         }
     },
     secondaryApplicant: {
         firstName: {
-            type: String,
-            required: true
+            type: String
         },
         lastName: {
-            type: String,
-            required: true
+            type: String
         },
         email: {
-            type: String,
-            required: true
+            type: String
         },
         currentAddress: {
             street: {
-                type: String,
-                required: true
+                type: String
             },
             street2: String,
             city: {
-                type: String,
-                required: true
+                type: String
             },
             state: {
-                type: String,
-                required: true
+                type: String
             },
             country: {
-                type: String,
-                required: true
+                type: String
             },
             zip: {
-                type: String,
-                required: true
+                type: String
             },
             timeLived: {
-                type: String,
-                required: true
+                type: String
             }
         },
         prevAddress1: {
             street: {
-                type: String,
-                required: true
+                type: String
             },
             street2: String,
             city: {
-                type: String,
-                required: true
+                type: String
             },
             state: {
-                type: String,
-                required: true
+                type: String
             },
             country: {
-                type: String,
-                required: true
+                type: String
             },
             zip: {
-                type: String,
-                required: true
+                type: String
             },
             timeLived: {
-                type: String,
-                required: true
+                type: String
             }
         },
         prevAddress2: {
             street: {
-                type: String,
-                required: true
+                type: String
             },
             street2: String,
             city: {
-                type: String,
-                required: true
+                type: String
             },
             state: {
-                type: String,
-                required: true
+                type: String
             },
             country: {
-                type: String,
-                required: true
+                type: String
             },
             zip: {
-                type: String,
-                required: true
+                type: String
             },
             timeLived: {
-                type: String,
-                required: true
+                type: String
             }
         }
     },

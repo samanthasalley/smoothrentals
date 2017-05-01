@@ -183,3 +183,31 @@ module.exports.listingsDeleteOne = function(req, res) {
             }
     });
 };
+
+module.exports.listingGetAllApplications = function(req, res){
+    console.log('getting all applications for listing');
+    var listId = req.params.listId;
+
+    Listing
+        .findById(listId)
+        .populate('applications')
+        .exec(function(err, listing){
+            var response = {
+                status : 200,
+                message : {}
+            };
+            if(err){
+                response.status = 500;
+                response.message = err;
+            }else if(!listing){
+                response.status = 404;
+                response.message = "Listing ID not found";
+            }else{
+                response.message = listing;
+            }
+            res
+                .status(response.status)
+                .json(response.message);
+        });
+
+};

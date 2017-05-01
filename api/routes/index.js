@@ -16,10 +16,10 @@ router
     .post(ctrlListings.listingsUpdateOne)
     .delete(ctrlListings.listingsDeleteOne);
 
-// router
-//     .route('/listings/:listId/applications')
-//     .get(ctrlListings.listingGetAllApplications)
-//     .post(ctrlListings.listingsAddApplication);
+router
+    .route('/listings/:listId/applications')
+    .get(ctrlListings.listingGetAllApplications);
+    // .post(ctrlListings.listingsAddApplication);
     
 // router
 //     .route('/listings/:listId/applications/:appId')

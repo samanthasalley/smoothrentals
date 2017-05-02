@@ -39,6 +39,16 @@ router
     .delete(ctrlComments.commentsDeleteOne);
 
 
+router
+    .route('/applications')
+    .get(ctrlApplications.applicationsGetAll)
+    .post(ctrlApplications.applicationsAddOne);
+
+router
+    .route('/applications/:appId')
+    .get(ctrlApplications.applicationsGetOne)
+    .post(ctrlApplications.applicationsUpdateOne);
+
 // Authentication Routes
 router
     .route('/register')
